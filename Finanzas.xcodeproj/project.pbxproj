@@ -14,6 +14,8 @@
 		04008C1924CDF7FA0079DE46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04008C1724CDF7FA0079DE46 /* LaunchScreen.storyboard */; };
 		04008C2924CDF8E80079DE46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04008C2724CDF8E80079DE46 /* LoginViewController.swift */; };
 		04008C2A24CDF8E80079DE46 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04008C2824CDF8E80079DE46 /* LoginViewController.xib */; };
+		845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D4F2224D8F60400B5E80B /* SignUpViewController.swift */; };
+		845D4F2524D8F60400B5E80B /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845D4F2324D8F60400B5E80B /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		04008C1A24CDF7FA0079DE46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04008C2724CDF8E80079DE46 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04008C2824CDF8E80079DE46 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		845D4F2224D8F60400B5E80B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
+		845D4F2324D8F60400B5E80B /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.xib"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +65,8 @@
 				04008C2324CDF85C0079DE46 /* Resources */,
 				04008C2124CDF8290079DE46 /* Model */,
 				04008C2024CDF8240079DE46 /* Application */,
-				04008C0C24CDF7F80079DE46 /* AppDelegate.swift */,
 				04008C0E24CDF7F80079DE46 /* SceneDelegate.swift */,
+				04008C0C24CDF7F80079DE46 /* AppDelegate.swift */,
 				04008C1724CDF7FA0079DE46 /* LaunchScreen.storyboard */,
 				04008C1A24CDF7FA0079DE46 /* Info.plist */,
 			);
@@ -113,6 +117,8 @@
 		04008C2524CDF8C00079DE46 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				845D4F2324D8F60400B5E80B /* SignUpViewController.xib */,
+				845D4F2224D8F60400B5E80B /* SignUpViewController.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 			files = (
 				04008C1924CDF7FA0079DE46 /* LaunchScreen.storyboard in Resources */,
 				04008C1624CDF7FA0079DE46 /* Assets.xcassets in Resources */,
+				845D4F2524D8F60400B5E80B /* SignUpViewController.xib in Resources */,
 				04008C2A24CDF8E80079DE46 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +208,7 @@
 				04008C1124CDF7F80079DE46 /* BaseViewController.swift in Sources */,
 				04008C0D24CDF7F80079DE46 /* AppDelegate.swift in Sources */,
 				04008C0F24CDF7F80079DE46 /* SceneDelegate.swift in Sources */,
+				845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Finanzas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,6 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Finanzas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

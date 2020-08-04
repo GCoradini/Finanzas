@@ -9,7 +9,17 @@
 import UIKit
 
 final class LoginViewController: BaseViewController {
+    
+    @IBOutlet var loginButton: UIButton!;
+    @IBOutlet var signUpButton: UIButton!;
+    @IBOutlet var usernameTxtField: UITextField!;
+    @IBOutlet var passwordTxtField: UITextField!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func btnSignUp() {
+        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
 }

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Finanzas" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="x6H-Me-EGc" id="HzF-lU-tYi"/>
+                <outlet property="passwordTxtField" destination="kAp-oA-Yal" id="ctZ-ia-0vR"/>
+                <outlet property="signUpButton" destination="9le-xl-bHf" id="aLh-eZ-WSN"/>
+                <outlet property="usernameTxtField" destination="omj-b1-gSw" id="7oK-d4-QA5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,9 +20,86 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dxz-VA-hyJ">
+                    <rect key="frame" x="75" y="244" width="264" height="230"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfV-B7-2AE">
+                            <rect key="frame" x="0.0" y="0.0" width="264" height="50"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="omj-b1-gSw">
+                            <rect key="frame" x="0.0" y="60" width="264" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" textContentType="username"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhy-UX-h1T">
+                            <rect key="frame" x="0.0" y="120" width="264" height="50"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAp-oA-Yal">
+                            <rect key="frame" x="0.0" y="180" width="264" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finanzas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEm-No-jsC">
+                    <rect key="frame" x="95" y="114" width="224" height="60"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="50"/>
+                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9le-xl-bHf">
+                    <rect key="frame" x="161" y="694" width="92" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="9qe-JO-1ws"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Sign Up"/>
+                    <connections>
+                        <action selector="btnSignUp" destination="-1" eventType="touchUpInside" id="Kul-W8-5cD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6H-Me-EGc">
+                    <rect key="frame" x="135" y="504" width="144" height="60"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dxz-VA-hyJ" firstAttribute="top" secondItem="jEm-No-jsC" secondAttribute="bottom" constant="70" id="2cf-Ym-anH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9le-xl-bHf" secondAttribute="bottom" constant="121" id="3xH-KL-Dys"/>
+                <constraint firstItem="9le-xl-bHf" firstAttribute="top" secondItem="x6H-Me-EGc" secondAttribute="bottom" constant="130" id="4gi-jK-i9U"/>
+                <constraint firstItem="9le-xl-bHf" firstAttribute="top" secondItem="dxz-VA-hyJ" secondAttribute="bottom" constant="220" id="6VR-Gl-lER"/>
+                <constraint firstItem="jEm-No-jsC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="95" id="7QA-Ey-T5h"/>
+                <constraint firstItem="dxz-VA-hyJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="75" id="7rV-mN-OKm"/>
+                <constraint firstItem="x6H-Me-EGc" firstAttribute="top" secondItem="dxz-VA-hyJ" secondAttribute="bottom" constant="30" id="812-Pc-E5y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9le-xl-bHf" secondAttribute="trailing" constant="161" id="Enw-Cf-Hr7"/>
+                <constraint firstItem="x6H-Me-EGc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="135" id="GDJ-3D-dGi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dxz-VA-hyJ" secondAttribute="trailing" constant="75" id="GT0-gH-OnS"/>
+                <constraint firstItem="jEm-No-jsC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="NMq-i2-6Zi"/>
+                <constraint firstItem="dxz-VA-hyJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="Yds-P0-Meh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x6H-Me-EGc" secondAttribute="trailing" constant="135" id="dNR-IO-R4B"/>
+                <constraint firstItem="9le-xl-bHf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="161" id="ucs-yr-Sdf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jEm-No-jsC" secondAttribute="trailing" constant="95" id="wTP-Dr-1bS"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="132" y="145"/>
+            <point key="canvasLocation" x="131.8840579710145" y="144.64285714285714"/>
         </view>
     </objects>
 </document>
