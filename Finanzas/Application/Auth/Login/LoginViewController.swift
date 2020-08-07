@@ -16,6 +16,14 @@ final class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Login"
+        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.isTranslucent = true
+        self.navigationController!.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "Arial Rounded MT Bold", size: 17)!
+        ]
+        self.navigationController!.navigationBar.tintColor = UIColor.orange
     }
     
     @IBAction func btnSignUp() {
@@ -26,9 +34,9 @@ final class LoginViewController: BaseViewController {
     @IBAction func btnLogin() {
         guard login.signIn(with: usernameTxtField.text,
                            and: passwordTxtField.text
-            ) else {
-                print("Usuario o contraseña incorrecta")
-                return
+        ) else {
+            print("Usuario o contraseña incorrecta")
+            return
         }
         self.navigationController?.pushViewController(HomeViewController(), animated: true)
         
