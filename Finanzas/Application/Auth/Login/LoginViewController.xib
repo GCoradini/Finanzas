@@ -9,9 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Finanzas" customModuleProvider="target">
             <connections>
-                <outlet property="loginButton" destination="x6H-Me-EGc" id="HzF-lU-tYi"/>
                 <outlet property="passwordTxtField" destination="kAp-oA-Yal" id="ctZ-ia-0vR"/>
-                <outlet property="signUpButton" destination="9le-xl-bHf" id="aLh-eZ-WSN"/>
                 <outlet property="usernameTxtField" destination="omj-b1-gSw" id="7oK-d4-QA5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dxz-VA-hyJ">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dxz-VA-hyJ">
                     <rect key="frame" x="75" y="244" width="264" height="230"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfV-B7-2AE">
@@ -66,7 +64,9 @@
                         <constraint firstAttribute="height" constant="47" id="9qe-JO-1ws"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                    <state key="normal" title="Sign Up"/>
+                    <state key="normal" title="Sign Up">
+                        <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                     <connections>
                         <action selector="btnSignUp" destination="-1" eventType="touchUpInside" id="Kul-W8-5cD"/>
                     </connections>
@@ -78,6 +78,19 @@
                     <state key="normal" title="Login">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="btnLogin" destination="-1" eventType="touchUpInside" id="nAv-MD-03Z"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQK-8t-L5x">
+                    <rect key="frame" x="250" y="774" width="144" height="88"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="BORRAR DATOS">
+                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    </state>
+                    <connections>
+                        <action selector="borrarDatos" destination="-1" eventType="touchUpInside" id="mpm-5V-9xc"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -89,12 +102,16 @@
                 <constraint firstItem="jEm-No-jsC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="95" id="7QA-Ey-T5h"/>
                 <constraint firstItem="dxz-VA-hyJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="75" id="7rV-mN-OKm"/>
                 <constraint firstItem="x6H-Me-EGc" firstAttribute="top" secondItem="dxz-VA-hyJ" secondAttribute="bottom" constant="30" id="812-Pc-E5y"/>
+                <constraint firstItem="bQK-8t-L5x" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="AW6-IJ-Q5j"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9le-xl-bHf" secondAttribute="trailing" constant="161" id="Enw-Cf-Hr7"/>
                 <constraint firstItem="x6H-Me-EGc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="135" id="GDJ-3D-dGi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dxz-VA-hyJ" secondAttribute="trailing" constant="75" id="GT0-gH-OnS"/>
                 <constraint firstItem="jEm-No-jsC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="NMq-i2-6Zi"/>
                 <constraint firstItem="dxz-VA-hyJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="Yds-P0-Meh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bQK-8t-L5x" secondAttribute="trailing" constant="20" id="chI-e6-jtx"/>
+                <constraint firstItem="bQK-8t-L5x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="dMH-bR-Dn7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x6H-Me-EGc" secondAttribute="trailing" constant="135" id="dNR-IO-R4B"/>
+                <constraint firstItem="bQK-8t-L5x" firstAttribute="top" secondItem="x6H-Me-EGc" secondAttribute="bottom" constant="210" id="pEh-qu-Lsk"/>
                 <constraint firstItem="9le-xl-bHf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="161" id="ucs-yr-Sdf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jEm-No-jsC" secondAttribute="trailing" constant="95" id="wTP-Dr-1bS"/>
             </constraints>
