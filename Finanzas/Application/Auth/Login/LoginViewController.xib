@@ -28,13 +28,18 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="omj-b1-gSw">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="omj-b1-gSw">
                             <rect key="frame" x="0.0" y="60" width="264" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits" textContentType="username"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhy-UX-h1T">
                             <rect key="frame" x="0.0" y="120" width="264" height="50"/>
@@ -42,13 +47,18 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAp-oA-Yal">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAp-oA-Yal">
                             <rect key="frame" x="0.0" y="180" width="264" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                     </subviews>
                 </stackView>
@@ -59,12 +69,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9le-xl-bHf">
-                    <rect key="frame" x="161" y="694" width="92" height="47"/>
+                    <rect key="frame" x="120" y="694" width="174" height="47"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="9qe-JO-1ws"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                    <state key="normal" title="Sign Up">
+                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                    <state key="normal" title="Create an account">
                         <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -78,18 +89,14 @@
                     <state key="normal" title="Login">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="btnLogin" destination="-1" eventType="touchUpInside" id="nAv-MD-03Z"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQK-8t-L5x">
-                    <rect key="frame" x="250" y="774" width="144" height="88"/>
-                    <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="BORRAR DATOS">
-                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                    </state>
-                    <connections>
-                        <action selector="borrarDatos" destination="-1" eventType="touchUpInside" id="mpm-5V-9xc"/>
                     </connections>
                 </button>
             </subviews>
@@ -102,17 +109,13 @@
                 <constraint firstItem="jEm-No-jsC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="95" id="7QA-Ey-T5h"/>
                 <constraint firstItem="dxz-VA-hyJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="75" id="7rV-mN-OKm"/>
                 <constraint firstItem="x6H-Me-EGc" firstAttribute="top" secondItem="dxz-VA-hyJ" secondAttribute="bottom" constant="30" id="812-Pc-E5y"/>
-                <constraint firstItem="bQK-8t-L5x" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="AW6-IJ-Q5j"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9le-xl-bHf" secondAttribute="trailing" constant="161" id="Enw-Cf-Hr7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9le-xl-bHf" secondAttribute="trailing" constant="120" id="Enw-Cf-Hr7"/>
                 <constraint firstItem="x6H-Me-EGc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="135" id="GDJ-3D-dGi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dxz-VA-hyJ" secondAttribute="trailing" constant="75" id="GT0-gH-OnS"/>
                 <constraint firstItem="jEm-No-jsC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="NMq-i2-6Zi"/>
                 <constraint firstItem="dxz-VA-hyJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="Yds-P0-Meh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bQK-8t-L5x" secondAttribute="trailing" constant="20" id="chI-e6-jtx"/>
-                <constraint firstItem="bQK-8t-L5x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="250" id="dMH-bR-Dn7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x6H-Me-EGc" secondAttribute="trailing" constant="135" id="dNR-IO-R4B"/>
-                <constraint firstItem="bQK-8t-L5x" firstAttribute="top" secondItem="x6H-Me-EGc" secondAttribute="bottom" constant="210" id="pEh-qu-Lsk"/>
-                <constraint firstItem="9le-xl-bHf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="161" id="ucs-yr-Sdf"/>
+                <constraint firstItem="9le-xl-bHf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="ucs-yr-Sdf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jEm-No-jsC" secondAttribute="trailing" constant="95" id="wTP-Dr-1bS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

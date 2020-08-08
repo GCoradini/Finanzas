@@ -15,8 +15,9 @@ public class Login {
         userDefault = UserDefaultManager()
     }
     
-    func signIn(with loginUsername: String?,
-                and loginPassword: String?
+    func signIn(
+        with loginUsername: String?,
+        and loginPassword: String?
     ) -> Bool {
         guard
             let username = loginUsername,

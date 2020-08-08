@@ -18,7 +18,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Sign up"
     }
     
@@ -31,7 +30,7 @@ class SignUpViewController: UIViewController {
                 print("No se pudo registrar el usuario")
                 return
         }
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
         
         //PRINT PA CONSOLA
         print("Boton registrarse presionado")

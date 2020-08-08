@@ -10,8 +10,9 @@ import UIKit
 
 final class LoginViewController: BaseViewController {
     
-    @IBOutlet var usernameTxtField: UITextField!;
-    @IBOutlet var passwordTxtField: UITextField!;
+    @IBOutlet var usernameTxtField: UITextField!
+    @IBOutlet var passwordTxtField: UITextField!
+    
     let login = Login()
     
     override func viewDidLoad() {
@@ -24,6 +25,11 @@ final class LoginViewController: BaseViewController {
             .font: UIFont(name: "Arial Rounded MT Bold", size: 17)!
         ]
         self.navigationController!.navigationBar.tintColor = UIColor.orange
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        usernameTxtField.text = ""
+        passwordTxtField.text = ""
     }
     
     @IBAction func btnSignUp() {
@@ -50,9 +56,9 @@ final class LoginViewController: BaseViewController {
             print(password)
         }
     }
-    
+    /*
     ///Borrar esto
     @IBAction func borrarDatos() {
         login.userDefault.clearUsers()
-    }
+    }*/
 }
