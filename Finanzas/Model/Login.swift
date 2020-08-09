@@ -25,22 +25,22 @@ public class Login {
             else {
                 print("Enter a valid username")
                 return false
-            }
+        }
         guard
             let password = loginPassword,
             password.isValidPassword
             else {
                 print("Enter a valid password")
                 return false
-            }
-        let users = userDefault.getUsers()
-        for user in users {
-            if user.username == username && user.password == password {
-                userDefault.setLoguedUser(user)
-                return true
-            }
         }
-        return false
+        let users = userDefault.getUsers()
+        guard let user = users.first(
+            where: {$0.username == username && $0.password == password}
+            ) else {
+                return false
+        }
+        userDefault.setLoguedUser(user)
+        return true
     }
     
     func signUp(
@@ -55,21 +55,21 @@ public class Login {
             else {
                 print("Enter a valid username")
                 return false
-            }
+        }
         guard
             let email = registerEmail,
             email.isValidEmail
             else {
                 print("Enter a valid email")
                 return false
-            }
+        }
         guard
             let password = registerPassword,
             password.isValidPassword
             else {
                 print("Enter a valid password")
                 return false
-            }
+        }
         guard
             let confPassword = confirmedPassword,
             confPassword.isValidPassword,
@@ -77,7 +77,7 @@ public class Login {
             else {
                 print("Passwords does not match")
                 return false
-            }
+        }
         userDefault.saveUser(User(username: username, email: email, password: password))
         return true
     }
