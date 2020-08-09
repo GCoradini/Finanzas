@@ -47,6 +47,10 @@ class SignUpViewController: UIViewController {
                 print("No se pudo registrar el usuario")
                 return
         }
-        self.navigationController?.popViewController(animated: true)
+        self.alert(
+            message: "Congratulations",
+            title:"Your account has been created successfully",
+            handler: {_ in self.navigationController?.popViewController(animated: true)}
+        )
     }
 }
