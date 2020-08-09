@@ -9,6 +9,7 @@
 import Foundation
 
 //User, que sea un struct, mirar
+//hacer los atributos privados
 class User: Codable {
     var username: String
     var email: String

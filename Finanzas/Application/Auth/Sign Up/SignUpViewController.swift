@@ -22,18 +22,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func btnsignUp() {
-        guard login.signUp(user: usernameTextField.text,
-                           email: emailTextField.text,
-                           password: passwordTextField.text,
-                           confirmed: confirmedPasswordTextField.text
-            ) else {
-                print("No se pudo registrar el usuario")
-                return
-        }
-        self.navigationController?.popViewController(animated: true)
-        
-        //PRINT PA CONSOLA
-        print("Boton registrarse presionado")
+        //PRINT PA CONSOLA borrar luego
+        print("Boton confirmar presionado")
         if let username = usernameTextField.text {
             print("Username: \(username)")
         }
@@ -46,5 +36,17 @@ class SignUpViewController: UIViewController {
         if let confirmedPassword = confirmedPasswordTextField.text {
             print("Password confirmado: \(confirmedPassword)")
         }
+        //------------------------------------------------------
+        
+        guard login.signUp (
+            user: usernameTextField.text,
+            email: emailTextField.text,
+            password: passwordTextField.text,
+            confirmed: confirmedPasswordTextField.text
+            ) else {
+                print("No se pudo registrar el usuario")
+                return
+        }
+        self.navigationController?.popViewController(animated: true)
     }
 }

@@ -18,6 +18,7 @@
 		845D4F2524D8F60400B5E80B /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845D4F2324D8F60400B5E80B /* SignUpViewController.xib */; };
 		84C5148C24DB801800FA24C1 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5148B24DB801800FA24C1 /* UserDefaultManager.swift */; };
 		84C5148E24DB910200FA24C1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5148D24DB910200FA24C1 /* Validation.swift */; };
+		84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2449224E082F800438940 /* StyleNavigationBar.swift */; };
 		84D8A46924D9E407008628AB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46824D9E407008628AB /* Login.swift */; };
 		84D8A46C24D9E489008628AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46A24D9E489008628AB /* HomeViewController.swift */; };
 		84D8A46D24D9E489008628AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D8A46B24D9E489008628AB /* HomeViewController.xib */; };
@@ -38,6 +39,7 @@
 		845D4F2324D8F60400B5E80B /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.xib"; sourceTree = SOURCE_ROOT; };
 		84C5148B24DB801800FA24C1 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		84C5148D24DB910200FA24C1 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		84D2449224E082F800438940 /* StyleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleNavigationBar.swift; sourceTree = "<group>"; };
 		84D8A46824D9E407008628AB /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		84D8A46A24D9E489008628AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		84D8A46B24D9E489008628AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				84D8A46724D9E383008628AB /* Home */,
 				04008C2424CDF8B10079DE46 /* Login */,
 				04008C2524CDF8C00079DE46 /* Signup */,
+				84D2449224E082F800438940 /* StyleNavigationBar.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				04008C0F24CDF7F80079DE46 /* SceneDelegate.swift in Sources */,
 				84C5148C24DB801800FA24C1 /* UserDefaultManager.swift in Sources */,
 				84D8A46C24D9E489008628AB /* HomeViewController.swift in Sources */,
+				84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */,
 				845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

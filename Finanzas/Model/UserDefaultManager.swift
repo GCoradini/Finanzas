@@ -29,7 +29,7 @@ class UserDefaultManager {
             do {
                 users = try decoder.decode(Array.self, from: data) as [User]
             } catch {
-                print("No se obtener los usuarios")
+                print("No se pudo obtener los usuarios")
             }
         }
         users.append(user)
