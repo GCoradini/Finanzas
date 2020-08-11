@@ -46,7 +46,11 @@ final class LoginViewController: BaseViewController {
             with: usernameTxtField.text,
             and: passwordTxtField.text
             ) else {
-                print("No se pudo iniciar sesión")
+                self.alert(
+                    message: "Incorrect username or password",
+                    title:"Login error",
+                    handler: nil
+                )
                 return
         }
         self.navigationController?.pushViewController(HomeViewController(), animated: true)
