@@ -48,37 +48,23 @@ public class Login {
         email registerEmail: String?,
         password registerPassword: String?,
         confirmed confirmedPassword: String?
-    ) -> Bool {
-        guard
-            let username = registerUsername,
-            username.isValidUsername
-            else {
-                print("Enter a valid username")
-                return false
-        }
-        guard
+    ) -> [Bool] {
+        var validations:[Bool] = []
+        
+        if let username = registerUsername,
             let email = registerEmail,
-            email.isValidEmail
-            else {
-                print("Enter a valid email")
-                return false
-        }
-        guard
             let password = registerPassword,
-            password.isValidPassword
-            else {
-                print("Enter a valid password")
-                return false
+            let confPassword = confirmedPassword
+        {
+            validations.append(username.isValidUsername)
+            validations.append(email.isValidEmail)
+            validations.append(password.isValidPassword)
+            validations.append(confPassword == registerPassword)
+            
+            if !validations.contains(false) {
+                userDefault.saveUser(User(username: username, email: email, password: password))
+            }
         }
-        guard
-            let confPassword = confirmedPassword,
-            confPassword.isValidPassword,
-            confPassword == password
-            else {
-                print("Passwords does not match")
-                return false
-        }
-        userDefault.saveUser(User(username: username, email: email, password: password))
-        return true
+        return validations
     }
 }

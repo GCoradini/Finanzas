@@ -10,10 +10,14 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet var usernameTextField: UITextField!
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var confirmedPasswordTextField: UITextField!
+    @IBOutlet var usernameErrorLbl: UILabel!
+    @IBOutlet var emailErrorLbl: UILabel!
+    @IBOutlet var passwordErrorLbl: UILabel!
+    @IBOutlet var confPasswordErrorLbl: UILabel!
+    @IBOutlet var usernameTF: UITextField!
+    @IBOutlet var emailTF: UITextField!
+    @IBOutlet var passwordTF: UITextField!
+    @IBOutlet var confirmedPasswordTF: UITextField!
     let login = Login()
     
     override func viewDidLoad() {
@@ -24,33 +28,64 @@ class SignUpViewController: UIViewController {
     @IBAction func btnsignUp() {
         //PRINT PA CONSOLA borrar luego
         print("Boton confirmar presionado")
-        if let username = usernameTextField.text {
+        if let username = usernameTF.text {
             print("Username: \(username)")
         }
-        if let email = emailTextField.text {
+        if let email = emailTF.text {
             print("Email: \(email)")
         }
-        if let password = passwordTextField.text {
+        if let password = passwordTF.text {
             print("Password: \(password)")
         }
-        if let confirmedPassword = confirmedPasswordTextField.text {
+        if let confirmedPassword = confirmedPasswordTF.text {
             print("Password confirmado: \(confirmedPassword)")
         }
         //------------------------------------------------------
+                
+        let validations = login.signUp(
+            user: usernameTF.text,
+            email: emailTF.text,
+            password: passwordTF.text,
+            confirmed: confirmedPasswordTF.text
+        )
         
-        guard login.signUp (
-            user: usernameTextField.text,
-            email: emailTextField.text,
-            password: passwordTextField.text,
-            confirmed: confirmedPasswordTextField.text
-            ) else {
-                print("No se pudo registrar el usuario")
-                return
+        //probar cambiar estos ifs
+        guard !validations.contains(false) else {
+            if validations[0] {
+                usernameErrorLbl.clearErrorMessage()
+            } else {
+                usernameErrorLbl.setErrorMessage(message: "username is not valid")
+            }
+            
+            if validations[1] {
+                emailErrorLbl.clearErrorMessage()
+            } else {
+                emailErrorLbl.setErrorMessage(message: "email is not valid")
+            }
+            
+            if validations[2] {
+                passwordErrorLbl.clearErrorMessage()
+            } else {
+                passwordErrorLbl.setErrorMessage(message: "password is not valid")
+            }
+            
+            if validations[3] {
+                confPasswordErrorLbl.clearErrorMessage()
+            } else {
+                confPasswordErrorLbl.setErrorMessage(message: "password doesn't match")
+            }
+            return
         }
+        usernameErrorLbl.clearErrorMessage()
+        emailErrorLbl.clearErrorMessage()
+        passwordErrorLbl.clearErrorMessage()
+        confPasswordErrorLbl.clearErrorMessage()
+        
         self.alert(
             message: "Congratulations",
             title:"Your account has been created successfully",
             handler: {_ in self.navigationController?.popViewController(animated: true)}
         )
+        
     }
 }

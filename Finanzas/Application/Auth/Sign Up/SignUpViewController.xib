@@ -9,10 +9,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Finanzas" customModuleProvider="target">
             <connections>
-                <outlet property="confirmedPasswordTextField" destination="JYI-Zd-Qbn" id="b9h-Sk-JL3"/>
-                <outlet property="emailTextField" destination="YNX-sb-nDZ" id="shE-4d-Tbw"/>
-                <outlet property="passwordTextField" destination="wCm-CS-Z4J" id="e11-dv-mzm"/>
-                <outlet property="usernameTextField" destination="9Du-hu-KBv" id="KHJ-Wc-otl"/>
+                <outlet property="confPasswordErrorLbl" destination="CU0-dT-OSj" id="mxV-po-bOb"/>
+                <outlet property="confirmedPasswordTF" destination="JYI-Zd-Qbn" id="iC6-71-oRE"/>
+                <outlet property="emailErrorLbl" destination="bJD-1p-13U" id="7li-cQ-lm7"/>
+                <outlet property="emailTF" destination="YNX-sb-nDZ" id="iR3-3X-jD6"/>
+                <outlet property="passwordErrorLbl" destination="6Fs-ag-1aD" id="xig-H8-TB5"/>
+                <outlet property="passwordTF" destination="wCm-CS-Z4J" id="viL-ej-EUA"/>
+                <outlet property="usernameErrorLbl" destination="zX7-wP-kgr" id="URH-8Z-jAB"/>
+                <outlet property="usernameTF" destination="9Du-hu-KBv" id="oke-8c-XS3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,49 +26,93 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gqi-cZ-JJr">
-                    <rect key="frame" x="50" y="231" width="314" height="342"/>
+                    <rect key="frame" x="40" y="231" width="334" height="361"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwX-q1-VUZ">
-                            <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
-                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ZN3-ix-Jm1">
+                            <rect key="frame" x="0.0" y="0.0" width="334" height="36.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwX-q1-VUZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="36.5"/>
+                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX7-wP-kgr">
+                                    <rect key="frame" x="84" y="0.0" width="250" height="36.5"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Du-hu-KBv">
-                            <rect key="frame" x="0.0" y="44" width="314" height="34"/>
+                            <rect key="frame" x="0.0" y="46.5" width="334" height="36.5"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lc-lU-Ior">
-                            <rect key="frame" x="0.0" y="88" width="314" height="34"/>
-                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-2R-EmJ">
+                            <rect key="frame" x="0.0" y="93" width="334" height="36"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lc-lU-Ior">
+                                    <rect key="frame" x="0.0" y="0.0" width="51.5" height="36"/>
+                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJD-1p-13U">
+                                    <rect key="frame" x="51.5" y="0.0" width="282.5" height="36"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@host.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNX-sb-nDZ">
-                            <rect key="frame" x="0.0" y="132" width="314" height="34"/>
+                            <rect key="frame" x="0.0" y="139" width="334" height="36.5"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpM-FY-Xbo">
-                            <rect key="frame" x="0.0" y="176" width="314" height="34"/>
-                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Q5W-OL-5aw">
+                            <rect key="frame" x="0.0" y="185.5" width="334" height="36.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpM-FY-Xbo">
+                                    <rect key="frame" x="0.0" y="0.0" width="89.5" height="36.5"/>
+                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fs-ag-1aD">
+                                    <rect key="frame" x="89.5" y="0.0" width="244.5" height="36.5"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8-15 Alphanumeric characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCm-CS-Z4J">
-                            <rect key="frame" x="0.0" y="220" width="314" height="34"/>
+                            <rect key="frame" x="0.0" y="232" width="334" height="36.5"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfk-Z8-sws">
-                            <rect key="frame" x="0.0" y="264" width="314" height="34"/>
-                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="wvi-Tr-ngt">
+                            <rect key="frame" x="0.0" y="278.5" width="334" height="36"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfk-Z8-sws">
+                                    <rect key="frame" x="0.0" y="0.0" width="165.5" height="36"/>
+                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU0-dT-OSj">
+                                    <rect key="frame" x="165.5" y="0.0" width="168.5" height="36"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                    <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYI-Zd-Qbn">
-                            <rect key="frame" x="0.0" y="308" width="314" height="34"/>
+                            <rect key="frame" x="0.0" y="324.5" width="334" height="36.5"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -78,7 +126,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gz-c3-8zC">
-                    <rect key="frame" x="120" y="613" width="174" height="61"/>
+                    <rect key="frame" x="120" y="632" width="174" height="42"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
                     <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -95,8 +143,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3Gz-c3-8zC" secondAttribute="bottom" constant="188" id="HLz-oI-d6G"/>
                 <constraint firstItem="3Gz-c3-8zC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="LgO-S7-lCJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Gz-c3-8zC" secondAttribute="trailing" constant="120" id="YVe-JF-Bqt"/>
-                <constraint firstItem="gqi-cZ-JJr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="a6R-es-HEc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gqi-cZ-JJr" secondAttribute="trailing" constant="50" id="wQA-jV-SYF"/>
+                <constraint firstItem="gqi-cZ-JJr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="a6R-es-HEc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gqi-cZ-JJr" secondAttribute="trailing" constant="40" id="wQA-jV-SYF"/>
                 <constraint firstItem="gqi-cZ-JJr" firstAttribute="top" secondItem="H4L-18-n2O" secondAttribute="bottom" constant="50" id="wf4-8w-hKD"/>
                 <constraint firstItem="3Gz-c3-8zC" firstAttribute="top" secondItem="gqi-cZ-JJr" secondAttribute="bottom" constant="40" id="xUo-12-m4X"/>
             </constraints>
