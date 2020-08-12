@@ -26,22 +26,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func btnsignUp() {
-        //PRINT PA CONSOLA borrar luego
-        print("Boton confirmar presionado")
-        if let username = usernameTF.text {
-            print("Username: \(username)")
-        }
-        if let email = emailTF.text {
-            print("Email: \(email)")
-        }
-        if let password = passwordTF.text {
-            print("Password: \(password)")
-        }
-        if let confirmedPassword = confirmedPasswordTF.text {
-            print("Password confirmado: \(confirmedPassword)")
-        }
-        //------------------------------------------------------
-                
+        
         let validations = login.signUp(
             user: usernameTF.text,
             email: emailTF.text,

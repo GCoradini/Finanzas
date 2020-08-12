@@ -15,6 +15,10 @@
 		04008C2924CDF8E80079DE46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04008C2724CDF8E80079DE46 /* LoginViewController.swift */; };
 		04008C2A24CDF8E80079DE46 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04008C2824CDF8E80079DE46 /* LoginViewController.xib */; };
 		84018FF624E311E50085E3AA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84018FF524E311E50085E3AA /* ErrorMessage.swift */; };
+		84018FFA24E32A190085E3AA /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84018FF824E32A190085E3AA /* BudgetViewController.swift */; };
+		84018FFB24E32A190085E3AA /* BudgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84018FF924E32A190085E3AA /* BudgetViewController.xib */; };
+		84018FFE24E32A690085E3AA /* NewBudgetItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84018FFC24E32A690085E3AA /* NewBudgetItemViewController.swift */; };
+		84018FFF24E32A690085E3AA /* NewBudgetItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84018FFD24E32A690085E3AA /* NewBudgetItemViewController.xib */; };
 		845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D4F2224D8F60400B5E80B /* SignUpViewController.swift */; };
 		845D4F2524D8F60400B5E80B /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845D4F2324D8F60400B5E80B /* SignUpViewController.xib */; };
 		84A2332F24E0AB9900621429 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2332E24E0AB9900621429 /* Alert.swift */; };
@@ -22,8 +26,6 @@
 		84C5148E24DB910200FA24C1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5148D24DB910200FA24C1 /* Validation.swift */; };
 		84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2449224E082F800438940 /* StyleNavigationBar.swift */; };
 		84D8A46924D9E407008628AB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46824D9E407008628AB /* Login.swift */; };
-		84D8A46C24D9E489008628AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46A24D9E489008628AB /* HomeViewController.swift */; };
-		84D8A46D24D9E489008628AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D8A46B24D9E489008628AB /* HomeViewController.xib */; };
 		84D8A46F24D9E5C6008628AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46E24D9E5C6008628AB /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,10 @@
 		04008C2724CDF8E80079DE46 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04008C2824CDF8E80079DE46 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		84018FF524E311E50085E3AA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		84018FF824E32A190085E3AA /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		84018FF924E32A190085E3AA /* BudgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetViewController.xib; sourceTree = "<group>"; };
+		84018FFC24E32A690085E3AA /* NewBudgetItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetItemViewController.swift; sourceTree = "<group>"; };
+		84018FFD24E32A690085E3AA /* NewBudgetItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBudgetItemViewController.xib; sourceTree = "<group>"; };
 		845D4F2224D8F60400B5E80B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
 		845D4F2324D8F60400B5E80B /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.xib"; sourceTree = SOURCE_ROOT; };
 		84A2332E24E0AB9900621429 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -45,8 +51,6 @@
 		84C5148D24DB910200FA24C1 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		84D2449224E082F800438940 /* StyleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleNavigationBar.swift; sourceTree = "<group>"; };
 		84D8A46824D9E407008628AB /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		84D8A46A24D9E489008628AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		84D8A46B24D9E489008628AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		84D8A46E24D9E5C6008628AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +152,7 @@
 		04008C2624CDF8C90079DE46 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				84D8A46724D9E383008628AB /* Home */,
+				84018FF724E3289A0085E3AA /* Budget */,
 				04008C2424CDF8B10079DE46 /* Login */,
 				04008C2524CDF8C00079DE46 /* Signup */,
 				84D2449224E082F800438940 /* StyleNavigationBar.swift */,
@@ -158,13 +162,15 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		84D8A46724D9E383008628AB /* Home */ = {
+		84018FF724E3289A0085E3AA /* Budget */ = {
 			isa = PBXGroup;
 			children = (
-				84D8A46A24D9E489008628AB /* HomeViewController.swift */,
-				84D8A46B24D9E489008628AB /* HomeViewController.xib */,
+				84018FF824E32A190085E3AA /* BudgetViewController.swift */,
+				84018FF924E32A190085E3AA /* BudgetViewController.xib */,
+				84018FFC24E32A690085E3AA /* NewBudgetItemViewController.swift */,
+				84018FFD24E32A690085E3AA /* NewBudgetItemViewController.xib */,
 			);
-			path = Home;
+			path = Budget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +232,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04008C1924CDF7FA0079DE46 /* LaunchScreen.storyboard in Resources */,
+				84018FFF24E32A690085E3AA /* NewBudgetItemViewController.xib in Resources */,
+				84018FFB24E32A190085E3AA /* BudgetViewController.xib in Resources */,
 				04008C1624CDF7FA0079DE46 /* Assets.xcassets in Resources */,
-				84D8A46D24D9E489008628AB /* HomeViewController.xib in Resources */,
 				845D4F2524D8F60400B5E80B /* SignUpViewController.xib in Resources */,
 				04008C2A24CDF8E80079DE46 /* LoginViewController.xib in Resources */,
 			);
@@ -241,16 +248,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				04008C2924CDF8E80079DE46 /* LoginViewController.swift in Sources */,
+				84018FFE24E32A690085E3AA /* NewBudgetItemViewController.swift in Sources */,
 				04008C1124CDF7F80079DE46 /* BaseViewController.swift in Sources */,
 				04008C0D24CDF7F80079DE46 /* AppDelegate.swift in Sources */,
 				84D8A46924D9E407008628AB /* Login.swift in Sources */,
 				84D8A46F24D9E5C6008628AB /* User.swift in Sources */,
+				84018FFA24E32A190085E3AA /* BudgetViewController.swift in Sources */,
 				84C5148E24DB910200FA24C1 /* Validation.swift in Sources */,
 				84018FF624E311E50085E3AA /* ErrorMessage.swift in Sources */,
 				84A2332F24E0AB9900621429 /* Alert.swift in Sources */,
 				04008C0F24CDF7F80079DE46 /* SceneDelegate.swift in Sources */,
 				84C5148C24DB801800FA24C1 /* UserDefaultManager.swift in Sources */,
-				84D8A46C24D9E489008628AB /* HomeViewController.swift in Sources */,
 				84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */,
 				845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */,
 			);

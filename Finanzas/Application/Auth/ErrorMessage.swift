@@ -9,6 +9,7 @@
 import UIKit
 
 extension UILabel {
+    
     func setErrorMessage(message: String) {
         self.text = message
     }

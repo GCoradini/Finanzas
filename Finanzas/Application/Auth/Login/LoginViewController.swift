@@ -27,21 +27,11 @@ final class LoginViewController: BaseViewController {
     }
     
     @IBAction func btnSignUp() {
-        print("Se presiono el boton de crear cuenta") //borrar luego
         self.navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
     
     @IBAction func btnLogin() {
-        //PA MOSTRAR POR CONSOLA borrar luego
-        print("Se ingreso:")
-        if let username = usernameTxtField.text {
-            print("username: \(username)")
-        }
-        if let password = passwordTxtField.text {
-            print("password: \(password)\n")
-        }
-        //-------------------------------------
-        
+
         guard login.signIn(
             with: usernameTxtField.text,
             and: passwordTxtField.text
@@ -53,7 +43,7 @@ final class LoginViewController: BaseViewController {
                 )
                 return
         }
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        self.navigationController?.pushViewController(BudgetViewController(), animated: true)
     }
     
     /*
