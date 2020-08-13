@@ -10,11 +10,14 @@ import UIKit
 
 final class LoginViewController: BaseViewController {
     
+    // MARK: - Views -
     @IBOutlet var usernameTxtField: UITextField!
     @IBOutlet var passwordTxtField: UITextField!
     
+    // MARK: - Attributes -
     let login = Login()
     
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
@@ -26,10 +29,12 @@ final class LoginViewController: BaseViewController {
         passwordTxtField.text = ""
     }
     
+    // MARK: - Sign Up Action -
     @IBAction func btnSignUp() {
         self.navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
     
+    // MARK: - Login Action -
     @IBAction func btnLogin() {
 
         guard login.signIn(
@@ -43,12 +48,11 @@ final class LoginViewController: BaseViewController {
                 )
                 return
         }
-        self.navigationController?.pushViewController(BudgetViewController(), animated: true)
+        //CAMBIAR el pasaje del username
+        let view = BudgetViewController()
+        if let user = usernameTxtField.text {
+            view.userLogued = user
+        }
+        self.navigationController?.pushViewController(view, animated: true)
     }
-    
-    /*
-    ///Borrar esto
-    @IBAction func borrarDatos() {
-        login.userDefault.clearUsers()
-    }*/
 }

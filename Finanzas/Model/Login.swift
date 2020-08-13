@@ -9,7 +9,7 @@
 import Foundation
 
 public class Login {
-    var userDefault:UserDefaultManager
+    var userDefault:UserDefaultManager  //HACER ESTA VARIABLE PRIVADA
     
     init(){
         userDefault = UserDefaultManager()
@@ -23,23 +23,20 @@ public class Login {
             let username = loginUsername,
             username.isValidUsername
             else {
-                print("Enter a valid username")
                 return false
         }
         guard
             let password = loginPassword,
             password.isValidPassword
             else {
-                print("Enter a valid password")
                 return false
         }
         let users = userDefault.getUsers()
-        guard let user = users.first(
+        guard let _ = users.first(
             where: {$0.username == username && $0.password == password}
             ) else {
                 return false
         }
-        userDefault.setLoguedUser(user)
         return true
     }
     

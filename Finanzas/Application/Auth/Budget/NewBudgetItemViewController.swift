@@ -10,10 +10,23 @@ import UIKit
 
 class NewBudgetItemViewController: UIViewController {
 
+    // MARK: - Views -
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var typePicker: UIPickerView!
-    let transactionTypes = ["Income", "Expense"]
+    @IBOutlet var titleTF: UITextField!
+    @IBOutlet var amountTF: UITextField!
+    @IBOutlet var descriptionTV: UITextView!
+    @IBOutlet var titleErrorLbl: UILabel!
+    @IBOutlet var amountErrorLbl: UILabel!
+    @IBOutlet var descriptionErrorLbl: UILabel!
     
+    // MARK: - Attributes -
+    let transactionTypes = ["Income", "Expense"]
+    let transactionManager = TransactionManager()
+    var valueSelected: String = "Income"
+    var userLogued: String = ""
+    
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "New transaction"
@@ -22,23 +35,40 @@ class NewBudgetItemViewController: UIViewController {
         typePicker.delegate = self
     }
     
+    // MARK: - Add Transaction Action -
     @IBAction func acceptBtn() {
+        let validations = transactionManager.addNewTransaction(
+            transactionTitle: titleTF.text,
+            transactionAmount: amountTF.text,
+            transactionType: valueSelected,
+            transactionDate: datePicker.date,
+            transactionDescription: descriptionTV.text,
+            user: userLogued
+            )
+        
+        guard !validations.contains(false) else {
+            if validations[0] {
+                titleErrorLbl.clearErrorMessage()
+            } else {
+                titleErrorLbl.setErrorMessage(message: "title is empty")
+            }
+            
+            if validations[1] {
+                amountErrorLbl.clearErrorMessage()
+            } else {
+                amountErrorLbl.setErrorMessage(message: "amount is not valid")
+            }
+            
+            if validations[2] {
+                descriptionErrorLbl.clearErrorMessage()
+            } else {
+                descriptionErrorLbl.setErrorMessage(message: "description is empty")
+            }
+            return
+        }
+        titleErrorLbl.clearErrorMessage()
+        amountErrorLbl.clearErrorMessage()
+        descriptionErrorLbl.clearErrorMessage()
         self.navigationController?.popViewController(animated: true)
-    }
-}
-
-extension NewBudgetItemViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return transactionTypes[row]
-    }
-}
-
-extension NewBudgetItemViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return transactionTypes.count
     }
 }

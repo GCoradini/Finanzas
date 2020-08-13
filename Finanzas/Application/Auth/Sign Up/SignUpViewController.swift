@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    // MARK: - Views -
     @IBOutlet var usernameErrorLbl: UILabel!
     @IBOutlet var emailErrorLbl: UILabel!
     @IBOutlet var passwordErrorLbl: UILabel!
@@ -18,13 +19,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     @IBOutlet var confirmedPasswordTF: UITextField!
+    
+    // MARK: - Attributes -
     let login = Login()
     
+    // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Sign up"
     }
     
+    // MARK: - Sign Up Action -
     @IBAction func btnsignUp() {
         
         let validations = login.signUp(
@@ -67,8 +72,8 @@ class SignUpViewController: UIViewController {
         confPasswordErrorLbl.clearErrorMessage()
         
         self.alert(
-            message: "Congratulations",
-            title:"Your account has been created successfully",
+            message: "Your account has been created successfully" ,
+            title: "Congratulations",
             handler: {_ in self.navigationController?.popViewController(animated: true)}
         )
         

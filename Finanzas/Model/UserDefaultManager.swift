@@ -23,25 +23,18 @@ class UserDefaultManager {
     }
     
     func saveUser(_ user: User) {
-        let decoder = JSONDecoder()
         let encoder = JSONEncoder()
-        if let data = defaults.data(forKey: KeysUD.users.rawValue) {
-            do {
-                users = try decoder.decode(Array.self, from: data) as [User]
-            } catch {
-                print("No se pudo obtener los usuarios")
-            }
-        }
+        users = getUsers()
         users.append(user)
         do {
             let encodeData = try encoder.encode(users)
             defaults.set(encodeData, forKey: KeysUD.users.rawValue)
         } catch {
-            print("No se pudo cargar un usuario")
+            print("No se pudo guardar un usuario")
         }
     }
     
-    func getUsers()-> [User] {
+    func getUsers() -> [User] {
         let decoder = JSONDecoder()
         if let data = defaults.data(forKey: KeysUD.users.rawValue) {
             do {
@@ -52,19 +45,30 @@ class UserDefaultManager {
         }
         return users
     }
-
-    func setLoguedUser(_ user: User) {
+    
+    func saveTransaction(_ transaction: Transaction, user: String) {
+        users = getUsers()
         let encoder = JSONEncoder()
+        
+        if let index = users.firstIndex(where: { $0.username == user }) {
+            users[index].transactions.append(transaction)
+        }
+        
         do {
-            let encodeData = try encoder.encode(user)
-            defaults.set(encodeData, forKey: KeysUD.loguedUser.rawValue)
+            let encodeData = try encoder.encode(users)
+            defaults.set(encodeData, forKey: KeysUD.users.rawValue)
         } catch {
-            print("No se pudo asignar el usuario logueado")
+            print("No se pudo guardar la transaccion")
         }
     }
     
-    func clearUsers(){
-        defaults.removeObject(forKey: KeysUD.users.rawValue)
+    func getTransactions(user: String) -> [Transaction] {
+        users = getUsers()
+        
+        guard let index = users.firstIndex(where: { $0.username == user }) else {
+            return []
+        }
+        return users[index].transactions
     }
 }
 
