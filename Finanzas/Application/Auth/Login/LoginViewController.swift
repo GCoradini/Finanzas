@@ -48,11 +48,10 @@ final class LoginViewController: BaseViewController {
                 )
                 return
         }
-        //CAMBIAR el pasaje del username
-        let view = BudgetViewController()
-        if let user = usernameTxtField.text {
-            view.userLogued = user
+        guard let user = usernameTxtField.text else {
+            return
         }
+        let view = BudgetViewController(username: user)
         self.navigationController?.pushViewController(view, animated: true)
     }
 }

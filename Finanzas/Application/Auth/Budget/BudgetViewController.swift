@@ -55,11 +55,15 @@ class BudgetViewController: UIViewController {
         table.reloadData()
     }
     
+    // MARK: - Init -
+    convenience init(username: String) {
+        self.init()
+        self.userLogued = username
+    }
+    
     // MARK: - New Transaction Action -
     @objc func addNew() {
-        //cambiar el pasaje del username
-        let view = NewBudgetItemViewController()
-        view.userLogued = userLogued
+        let view = NewBudgetItemViewController(username: userLogued)
         self.navigationController?.pushViewController(view, animated: true)
     }
 }

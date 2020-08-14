@@ -35,6 +35,12 @@ class NewBudgetItemViewController: UIViewController {
         typePicker.delegate = self
     }
     
+    // MARK: - Init -
+    convenience init(username: String) {
+        self.init()
+        self.userLogued = username
+    }
+    
     // MARK: - Add Transaction Action -
     @IBAction func acceptBtn() {
         let validations = transactionManager.addNewTransaction(
