@@ -11,11 +11,11 @@ import UIKit
 final class LoginViewController: BaseViewController {
     
     // MARK: - Views -
-    @IBOutlet var usernameTxtField: UITextField!
-    @IBOutlet var passwordTxtField: UITextField!
+    @IBOutlet private var usernameTxtField: UITextField!
+    @IBOutlet private var passwordTxtField: UITextField!
     
     // MARK: - Attributes -
-    let login = Login()
+    private let login = Login()
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
@@ -48,10 +48,8 @@ final class LoginViewController: BaseViewController {
                 )
                 return
         }
-        guard let user = usernameTxtField.text else {
-            return
-        }
-        let view = BudgetViewController(username: user)
+        let user = login.userDefault.getLoggeduser()
+        let view = BudgetViewController(user: user)
         self.navigationController?.pushViewController(view, animated: true)
     }
 }

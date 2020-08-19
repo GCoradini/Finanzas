@@ -9,10 +9,12 @@
 import Foundation
 
 public class Login {
-    var userDefault:UserDefaultManager  //HACER ESTA VARIABLE PRIVADA
+    var userDefault:UserDefaultManager
+    var validations:Validations<LoginErrors>
     
     init(){
         userDefault = UserDefaultManager()
+        validations = Validations()
     }
     
     func signIn(
@@ -32,11 +34,12 @@ public class Login {
                 return false
         }
         let users = userDefault.getUsers()
-        guard let _ = users.first(
+        guard let user = users.first(
             where: {$0.username == username && $0.password == password}
             ) else {
                 return false
         }
+        userDefault.setLoggedUser(user)
         return true
     }
     
@@ -45,23 +48,41 @@ public class Login {
         email registerEmail: String?,
         password registerPassword: String?,
         confirmed confirmedPassword: String?
-    ) -> [Bool] {
-        var validations:[Bool] = []
+    ) -> [LoginErrors] {
         
         if let username = registerUsername,
             let email = registerEmail,
             let password = registerPassword,
             let confPassword = confirmedPassword
         {
-            validations.append(username.isValidUsername)
-            validations.append(email.isValidEmail)
-            validations.append(password.isValidPassword)
-            validations.append(confPassword == registerPassword)
+            if !username.isValidUsername {
+                validations.addError(error: .invalidUsername)
+            }
             
-            if !validations.contains(false) {
+            if !email.isValidEmail {
+                validations.addError(error: .invalidEmail)
+            }
+            
+            if !password.isValidPassword {
+                validations.addError(error: .invalidPassword)
+            }
+            
+            if confPassword != registerPassword {
+                validations.addError(error: .invalidConfPassword)
+            }
+            
+            if validations.errors.isEmpty {
                 userDefault.saveUser(User(username: username, email: email, password: password))
             }
         }
-        return validations
+        return validations.errors
+    }
+    
+    func logout() {
+        userDefault.clearLoguedUser()
+    }
+    
+    func clearErrors() {
+        validations.clearErrors()
     }
 }

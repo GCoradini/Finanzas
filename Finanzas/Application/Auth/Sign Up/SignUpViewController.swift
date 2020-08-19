@@ -11,17 +11,17 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - Views -
-    @IBOutlet var usernameErrorLbl: UILabel!
-    @IBOutlet var emailErrorLbl: UILabel!
-    @IBOutlet var passwordErrorLbl: UILabel!
-    @IBOutlet var confPasswordErrorLbl: UILabel!
-    @IBOutlet var usernameTF: UITextField!
-    @IBOutlet var emailTF: UITextField!
-    @IBOutlet var passwordTF: UITextField!
-    @IBOutlet var confirmedPasswordTF: UITextField!
+    @IBOutlet private var usernameErrorLbl: UILabel!
+    @IBOutlet private var emailErrorLbl: UILabel!
+    @IBOutlet private var passwordErrorLbl: UILabel!
+    @IBOutlet private var confPasswordErrorLbl: UILabel!
+    @IBOutlet private var usernameTF: UITextField!
+    @IBOutlet private var emailTF: UITextField!
+    @IBOutlet private var passwordTF: UITextField!
+    @IBOutlet private var confirmedPasswordTF: UITextField!
     
     // MARK: - Attributes -
-    let login = Login()
+    private let login = Login()
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
@@ -38,38 +38,30 @@ class SignUpViewController: UIViewController {
             password: passwordTF.text,
             confirmed: confirmedPasswordTF.text
         )
+        clearErrors()
         
-        //probar cambiar estos ifs
-        guard !validations.contains(false) else {
-            if validations[0] {
-                usernameErrorLbl.clearErrorMessage()
-            } else {
+        for error in validations {
+            switch error {
+            case .invalidUsername:
                 usernameErrorLbl.setErrorMessage(message: "username is not valid")
-            }
-            
-            if validations[1] {
-                emailErrorLbl.clearErrorMessage()
-            } else {
+                break
+            case .invalidEmail:
                 emailErrorLbl.setErrorMessage(message: "email is not valid")
-            }
-            
-            if validations[2] {
-                passwordErrorLbl.clearErrorMessage()
-            } else {
+                break
+            case .invalidPassword:
                 passwordErrorLbl.setErrorMessage(message: "password is not valid")
-            }
-            
-            if validations[3] {
-                confPasswordErrorLbl.clearErrorMessage()
-            } else {
+                break
+            case .invalidConfPassword:
                 confPasswordErrorLbl.setErrorMessage(message: "password doesn't match")
+                break
             }
+        }
+        
+        guard validations.isEmpty else {
+            login.clearErrors()
             return
         }
-        usernameErrorLbl.clearErrorMessage()
-        emailErrorLbl.clearErrorMessage()
-        passwordErrorLbl.clearErrorMessage()
-        confPasswordErrorLbl.clearErrorMessage()
+        clearErrors()
         
         self.alert(
             message: "Your account has been created successfully" ,
@@ -77,5 +69,12 @@ class SignUpViewController: UIViewController {
             handler: {_ in self.navigationController?.popViewController(animated: true)}
         )
         
+    }
+    
+    private func clearErrors() {
+        usernameErrorLbl.clearErrorMessage()
+        emailErrorLbl.clearErrorMessage()
+        passwordErrorLbl.clearErrorMessage()
+        confPasswordErrorLbl.clearErrorMessage()
     }
 }

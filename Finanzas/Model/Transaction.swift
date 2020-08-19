@@ -8,18 +8,23 @@
 
 import Foundation
 
-struct Transaction : Codable { //hacer atributos privados
+enum TransactionType : String, Codable {
+    case Income
+    case Expense
+}
+
+struct Transaction : Codable {
     var amount: String
     var title: String
     var date: Date
-    var type: String
+    var type: TransactionType
     var description: String
     
     init(
         amount: String,
         title: String,
         date: Date,
-        type: String,
+        type: TransactionType,
         description: String
     ) {
         self.amount = amount
@@ -34,6 +39,6 @@ struct Transaction : Codable { //hacer atributos privados
         dateFormatter.dateStyle = .full
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let dateString = dateFormatter.string(from: date)
-        return dateString + "\nType: " + type + "\nDescription: " + description + "\n" + "$" + amount
+        return dateString + "\nType: " + type.rawValue + "\nDescription: " + description + "\n" + "$" + amount
     }
 }

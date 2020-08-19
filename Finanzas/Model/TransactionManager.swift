@@ -10,30 +10,39 @@ import Foundation
 
 class TransactionManager {
     var userDefault: UserDefaultManager
+    var validations: Validations<TransactionErrors>
     
     init(){
         userDefault = UserDefaultManager()
+        validations = Validations()
     }
     
     func addNewTransaction(
         transactionTitle: String?,
         transactionAmount: String?,
-        transactionType: String,
+        transactionType: TransactionType,
         transactionDate: Date,
         transactionDescription: String?,
         user: String
-    ) -> [Bool] {
-        var validations:[Bool] = []
-        
+    ) -> [TransactionErrors] {
+ 
         if let title = transactionTitle,
             let amount = transactionAmount,
             let description = transactionDescription
         {
-            validations.append(!title.isEmpty)
-            validations.append(amount.isValidAmount)
-            validations.append(!description.isEmpty)
+            if title.isEmpty {
+                validations.addError(error: .titleEmpty)
+            }
+            
+            if !amount.isValidAmount {
+                validations.addError(error: .invalidAmount)
+            }
+            
+            if description.isEmpty {
+                validations.addError(error: .descriptionEmpty)
+            }
 
-            if !validations.contains(false) {
+            if validations.errors.isEmpty {
                 userDefault.saveTransaction(
                     Transaction(
                         amount: amount,
@@ -46,7 +55,11 @@ class TransactionManager {
                 )
             }
         }
-        return validations
+        return validations.errors
+    }
+    
+    func clearErrors() {
+        validations.clearErrors()
     }
     
     func getBalance(user: String) -> Double {
@@ -55,7 +68,7 @@ class TransactionManager {
         
         for transaction in transactions {
             if let amount = Double(transaction.amount) {
-                balance += transaction.type == "Income" ? amount : -amount
+                balance += transaction.type == TransactionType.Income ? amount : -amount
             }
         }
         return balance

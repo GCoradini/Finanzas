@@ -9,7 +9,6 @@
 import UIKit
 
 extension UINavigationController {
-    
     func setStyleNavigationBar() {
         self.navigationBar.barStyle = .black
         self.navigationBar.isTranslucent = true

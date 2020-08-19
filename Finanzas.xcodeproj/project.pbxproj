@@ -27,14 +27,14 @@
 		84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2449224E082F800438940 /* StyleNavigationBar.swift */; };
 		84D8A46924D9E407008628AB /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46824D9E407008628AB /* Login.swift */; };
 		84D8A46F24D9E5C6008628AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A46E24D9E5C6008628AB /* User.swift */; };
+		84F383B224ECA3E000C243F1 /* InputValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F383B124ECA3E000C243F1 /* InputValidation.swift */; };
+		84F383B424ECA61700C243F1 /* TypeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F383B324ECA61700C243F1 /* TypeErrors.swift */; };
 		84F64F8724E4473B006D5D1D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64F8624E4473B006D5D1D /* Transaction.swift */; };
 		84F64F8B24E45F15006D5D1D /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64F8924E45F15006D5D1D /* TransactionTableViewCell.swift */; };
 		84F64F8C24E45F15006D5D1D /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F64F8A24E45F15006D5D1D /* TransactionTableViewCell.xib */; };
 		84F64F8E24E47664006D5D1D /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64F8D24E47664006D5D1D /* TransactionManager.swift */; };
 		84F64F9B24E4D45B006D5D1D /* TransactionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64F9924E4D45B006D5D1D /* TransactionHeader.swift */; };
 		84F64F9C24E4D45B006D5D1D /* TransactionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F64F9A24E4D45B006D5D1D /* TransactionHeader.xib */; };
-		84FE5C3324E5B1C10086CDCB /* BudgetTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5C3224E5B1C10086CDCB /* BudgetTable.swift */; };
-		84FE5C3524E5B1FC0086CDCB /* TransactionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5C3424E5B1FC0086CDCB /* TransactionPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,14 +60,14 @@
 		84D2449224E082F800438940 /* StyleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleNavigationBar.swift; sourceTree = "<group>"; };
 		84D8A46824D9E407008628AB /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		84D8A46E24D9E5C6008628AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84F383B124ECA3E000C243F1 /* InputValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidation.swift; sourceTree = "<group>"; };
+		84F383B324ECA61700C243F1 /* TypeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeErrors.swift; sourceTree = "<group>"; };
 		84F64F8624E4473B006D5D1D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		84F64F8924E45F15006D5D1D /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		84F64F8A24E45F15006D5D1D /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		84F64F8D24E47664006D5D1D /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		84F64F9924E4D45B006D5D1D /* TransactionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeader.swift; sourceTree = "<group>"; };
 		84F64F9A24E4D45B006D5D1D /* TransactionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHeader.xib; sourceTree = "<group>"; };
-		84FE5C3224E5B1C10086CDCB /* BudgetTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTable.swift; sourceTree = "<group>"; };
-		84FE5C3424E5B1FC0086CDCB /* TransactionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +129,8 @@
 				84C5148D24DB910200FA24C1 /* Validation.swift */,
 				84F64F8624E4473B006D5D1D /* Transaction.swift */,
 				84F64F8D24E47664006D5D1D /* TransactionManager.swift */,
+				84F383B124ECA3E000C243F1 /* InputValidation.swift */,
+				84F383B324ECA61700C243F1 /* TypeErrors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,8 +184,6 @@
 		84018FF724E3289A0085E3AA /* Budget */ = {
 			isa = PBXGroup;
 			children = (
-				84F64F9224E4AEEC006D5D1D /* Picker */,
-				84F64F8F24E4A88A006D5D1D /* Table */,
 				84F64F8824E45EC1006D5D1D /* Cells */,
 				84018FF824E32A190085E3AA /* BudgetViewController.swift */,
 				84018FF924E32A190085E3AA /* BudgetViewController.xib */,
@@ -202,22 +202,6 @@
 				84F64F9A24E4D45B006D5D1D /* TransactionHeader.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		84F64F8F24E4A88A006D5D1D /* Table */ = {
-			isa = PBXGroup;
-			children = (
-				84FE5C3224E5B1C10086CDCB /* BudgetTable.swift */,
-			);
-			path = Table;
-			sourceTree = "<group>";
-		};
-		84F64F9224E4AEEC006D5D1D /* Picker */ = {
-			isa = PBXGroup;
-			children = (
-				84FE5C3424E5B1FC0086CDCB /* TransactionPicker.swift */,
-			);
-			path = Picker;
 			sourceTree = "<group>";
 		};
 		84FE5C3624E5FAB90086CDCB /* Navigation Bar */ = {
@@ -315,6 +299,7 @@
 			files = (
 				04008C2924CDF8E80079DE46 /* LoginViewController.swift in Sources */,
 				84F64F9B24E4D45B006D5D1D /* TransactionHeader.swift in Sources */,
+				84F383B424ECA61700C243F1 /* TypeErrors.swift in Sources */,
 				84F64F8B24E45F15006D5D1D /* TransactionTableViewCell.swift in Sources */,
 				84018FFE24E32A690085E3AA /* NewBudgetItemViewController.swift in Sources */,
 				84F64F8724E4473B006D5D1D /* Transaction.swift in Sources */,
@@ -325,11 +310,10 @@
 				84D8A46F24D9E5C6008628AB /* User.swift in Sources */,
 				84018FFA24E32A190085E3AA /* BudgetViewController.swift in Sources */,
 				84C5148E24DB910200FA24C1 /* Validation.swift in Sources */,
-				84FE5C3324E5B1C10086CDCB /* BudgetTable.swift in Sources */,
 				84018FF624E311E50085E3AA /* ErrorMessage.swift in Sources */,
+				84F383B224ECA3E000C243F1 /* InputValidation.swift in Sources */,
 				84A2332F24E0AB9900621429 /* Alert.swift in Sources */,
 				04008C0F24CDF7F80079DE46 /* SceneDelegate.swift in Sources */,
-				84FE5C3524E5B1FC0086CDCB /* TransactionPicker.swift in Sources */,
 				84C5148C24DB801800FA24C1 /* UserDefaultManager.swift in Sources */,
 				84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */,
 				845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */,

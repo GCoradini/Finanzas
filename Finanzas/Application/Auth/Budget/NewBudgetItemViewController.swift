@@ -11,34 +11,39 @@ import UIKit
 class NewBudgetItemViewController: UIViewController {
 
     // MARK: - Views -
-    @IBOutlet var datePicker: UIDatePicker!
-    @IBOutlet var typePicker: UIPickerView!
-    @IBOutlet var titleTF: UITextField!
-    @IBOutlet var amountTF: UITextField!
-    @IBOutlet var descriptionTV: UITextView!
-    @IBOutlet var titleErrorLbl: UILabel!
-    @IBOutlet var amountErrorLbl: UILabel!
-    @IBOutlet var descriptionErrorLbl: UILabel!
+    @IBOutlet private var datePicker: UIDatePicker!
+    @IBOutlet private var typePicker: UIPickerView!
+    @IBOutlet private var titleTF: UITextField!
+    @IBOutlet private var amountTF: UITextField!
+    @IBOutlet private var descriptionTV: UITextView!
+    @IBOutlet private var titleErrorLbl: UILabel!
+    @IBOutlet private var amountErrorLbl: UILabel!
+    @IBOutlet private var descriptionErrorLbl: UILabel!
     
     // MARK: - Attributes -
-    let transactionTypes = ["Income", "Expense"]
-    let transactionManager = TransactionManager()
-    var valueSelected: String = "Income"
-    var userLogued: String = ""
+    private let transactionTypes = ["Income", "Expense"]
+    private let transactionManager = TransactionManager()
+    private var valueSelected = TransactionType.Income
+    private var userLogged: String = ""
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "New transaction"
-        datePicker.datePickerMode = .date
-        typePicker.dataSource = self
-        typePicker.delegate = self
+        configureDatePicker()
     }
-    
+        
     // MARK: - Init -
     convenience init(username: String) {
         self.init()
-        self.userLogued = username
+        self.userLogged = username
+    }
+    
+    // MARK: - Date Picker Configuration -
+    func configureDatePicker() {
+        datePicker.datePickerMode = .date
+        typePicker.dataSource = self
+        typePicker.delegate = self
     }
     
     // MARK: - Add Transaction Action -
@@ -49,32 +54,54 @@ class NewBudgetItemViewController: UIViewController {
             transactionType: valueSelected,
             transactionDate: datePicker.date,
             transactionDescription: descriptionTV.text,
-            user: userLogued
+            user: userLogged
             )
+        clearErrors()
         
-        guard !validations.contains(false) else {
-            if validations[0] {
-                titleErrorLbl.clearErrorMessage()
-            } else {
+        for error in validations {
+            switch error {
+            case .titleEmpty:
                 titleErrorLbl.setErrorMessage(message: "title is empty")
-            }
-            
-            if validations[1] {
-                amountErrorLbl.clearErrorMessage()
-            } else {
+            case .descriptionEmpty:
+                descriptionErrorLbl.setErrorMessage(message: "description is empty")
+            case .invalidAmount:
                 amountErrorLbl.setErrorMessage(message: "amount is not valid")
             }
-            
-            if validations[2] {
-                descriptionErrorLbl.clearErrorMessage()
-            } else {
-                descriptionErrorLbl.setErrorMessage(message: "description is empty")
-            }
+        }
+        
+        if !validations.isEmpty {
+            transactionManager.clearErrors()
             return
         }
+        clearErrors()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func clearErrors() {
         titleErrorLbl.clearErrorMessage()
         amountErrorLbl.clearErrorMessage()
         descriptionErrorLbl.clearErrorMessage()
-        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - UIPickerViewDelegate -
+extension NewBudgetItemViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return transactionTypes[row]
+    }
+}
+
+// MARK: - UIPickerViewDataSource -
+extension NewBudgetItemViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return transactionTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        valueSelected = transactionTypes[row] == "Income" ? .Income : .Expense
     }
 }

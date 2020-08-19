@@ -10,7 +10,7 @@ import Foundation
 
 enum KeysUD : String {
     case users
-    case loguedUser
+    case loggedUser
 }
 
 class UserDefaultManager {
@@ -44,6 +44,33 @@ class UserDefaultManager {
             }
         }
         return users
+    }
+    
+    func setLoggedUser(_ user: User) {
+        let encoder = JSONEncoder()
+        do {
+            let encodeData = try encoder.encode(user)
+            defaults.set(encodeData, forKey: KeysUD.loggedUser.rawValue)
+        } catch {
+            print("No se pudo asignar el usuario logueado")
+        }
+    }
+    
+    func getLoggeduser() -> User {
+        let decoder = JSONDecoder()
+        var user = User()
+        if let data = defaults.data(forKey: KeysUD.loggedUser.rawValue) {
+            do {
+                user = try decoder.decode(User.self, from: data) as User
+            } catch {
+                print("No se pudo obtener el usuario logueado")
+            }
+        }
+        return user
+    }
+    
+    func clearLoguedUser() {
+        defaults.removeObject(forKey: KeysUD.loggedUser.rawValue)
     }
     
     func saveTransaction(_ transaction: Transaction, user: String) {

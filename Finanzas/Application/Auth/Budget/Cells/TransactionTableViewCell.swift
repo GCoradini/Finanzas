@@ -18,18 +18,16 @@ class TransactionTableViewCell: UITableViewCell {
     // MARK: - Attributes -
     static let height: CGFloat = 50.0
     
+    // MARK: - Life cycle -
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
+    // MARK: - Cell Configure -
     func configure(with transaction: Transaction) {
         titleLbl.text = transaction.title
         amountLbl.text = "$" + transaction.amount.description
-        typeLbl.text = transaction.type
+        typeLbl.text = transaction.type.rawValue
     }
     
 }
