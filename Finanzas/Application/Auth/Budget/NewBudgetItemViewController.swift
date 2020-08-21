@@ -30,7 +30,7 @@ class NewBudgetItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "New transaction"
-        configureDatePicker()
+        configureDatePicker()        
     }
         
     // MARK: - Init -
