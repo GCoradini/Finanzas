@@ -11,10 +11,12 @@ import Foundation
 class TransactionManager {
     var userDefault: UserDefaultManager
     var validations: Validations<TransactionErrors>
+    var transactions: [Transaction]
     
     init(){
         userDefault = UserDefaultManager()
         validations = Validations()
+        transactions = []
     }
     
     func addNewTransaction(
@@ -74,7 +76,7 @@ class TransactionManager {
         return balance
     }
     
-    func getTransactions(user: String) -> [Transaction] {
-        return userDefault.getTransactions(user: user)
+    func getTransactions(user: String) {
+        transactions = userDefault.getTransactions(user: user)
     }
 }

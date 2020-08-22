@@ -14,12 +14,16 @@ class BudgetViewController: UIViewController {
     @IBOutlet private var table: UITableView!
     @IBOutlet private var userLbl: UILabel!
     @IBOutlet private var balanceLbl: UILabel!
+    @IBOutlet private var titleSearchTF: UITextField!
+    @IBOutlet private var allBtn: UIButton!
+    @IBOutlet private var incomeBtn: UIButton!
+    @IBOutlet private var expenseBtn: UIButton!
     
     // MARK: - Attributes -
-    private var transactions:[Transaction] = []
     private var transactionManager = TransactionManager()
     private var userLogged = User()
     private var login = Login()
+    private var isTitleFiltered = false
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
@@ -29,11 +33,13 @@ class BudgetViewController: UIViewController {
         
         addNavigationButtons()
         configureTableView()
+        
+        setButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        balanceLbl.text = String(transactionManager.getBalance(user: userLogged.username))
-        transactions = transactionManager.getTransactions(user: userLogged.username)
+        balanceLbl.text = "$" + String(transactionManager.getBalance(user: userLogged.username))
+        transactionManager.getTransactions(user: userLogged.username)
         table.reloadData()
     }
     
@@ -81,7 +87,84 @@ class BudgetViewController: UIViewController {
         self.init()
         self.userLogged = user
     }
+    
+    // MARK: - Check Buttons -
+    private func setButtons() {
+        allBtn.disable()
+        incomeBtn.enable()
+        expenseBtn.enable()
+    }
+    
+    // MARK: - Title Search Action -
+    @IBAction func btnTitleSearch() {
+
+        transactionManager.getTransactions(user: userLogged.username)
+        guard let title = titleSearchTF.text, !title.isEmpty else {
+            table.reloadData()
+            isTitleFiltered = false
+            checkPressedButton()
+            return
+        }
         
+        transactionManager.filterByTitle(title: title)
+        isTitleFiltered = true
+        checkPressedButton()
+        
+        table.reloadData()
+    }
+    
+    private func checkPressedButton() {
+        if !incomeBtn.isEnabled {
+            setIncomeTransactions()
+        } else if !expenseBtn.isEnabled {
+            setExpenseTransactions()
+        }
+        return
+    }
+    
+    // MARK: - Set All Transactions Action -
+    @IBAction func setAllTransactions() {
+        transactionManager.getTransactions(user: userLogged.username)
+        if let title = titleSearchTF.text, isTitleFiltered {
+            transactionManager.filterByTitle(title: title)
+        }
+        table.reloadData()
+        
+        allBtn.disable()
+        incomeBtn.enable()
+        expenseBtn.enable()
+    }
+    
+    // MARK: - Set Income Transactions Action -
+    @IBAction func setIncomeTransactions() {
+        
+        transactionManager.getTransactions(user: userLogged.username)
+        if let title = titleSearchTF.text, isTitleFiltered {
+            transactionManager.filterByTitle(title: title)
+        }
+        transactionManager.filterIncome()
+        table.reloadData()
+        
+        allBtn.enable()
+        incomeBtn.disable()
+        expenseBtn.enable()
+    }
+    
+    // MARK: - Set Expense Transactions Action -
+    @IBAction func setExpenseTransactions() {
+        
+        transactionManager.getTransactions(user: userLogged.username)
+        if let title = titleSearchTF.text, isTitleFiltered {
+            transactionManager.filterByTitle(title: title)
+        }
+        transactionManager.filterExpense()
+        table.reloadData()
+        
+        allBtn.enable()
+        incomeBtn.enable()
+        expenseBtn.disable()
+    }
+    
     // MARK: - New Transaction Action -
     @objc func addNew() {
         let view = NewBudgetItemViewController(username: userLogged.username)
@@ -92,12 +175,12 @@ class BudgetViewController: UIViewController {
 // MARK: - UITableViewDataSource -
 extension BudgetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+        return transactionManager.transactions.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTableViewCell") as! TransactionTableViewCell
-        let transaction = transactions[indexPath.row]
+        let transaction = transactionManager.transactions[indexPath.row]
         cell.configure(with: transaction)
         return cell
     }
@@ -119,7 +202,7 @@ extension BudgetViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let transaction = transactions[indexPath.row]
+        let transaction = transactionManager.transactions[indexPath.row]
         self.alert(
             message: "\(transaction.getDescription())" ,
             title: transaction.title,

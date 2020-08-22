@@ -22,6 +22,8 @@
 		845D4F2424D8F60400B5E80B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D4F2224D8F60400B5E80B /* SignUpViewController.swift */; };
 		845D4F2524D8F60400B5E80B /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845D4F2324D8F60400B5E80B /* SignUpViewController.xib */; };
 		84A2332F24E0AB9900621429 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2332E24E0AB9900621429 /* Alert.swift */; };
+		84C0C4E824F0823A0071A026 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0C4E724F0823A0071A026 /* ButtonStyle.swift */; };
+		84C0C4EC24F09AB60071A026 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C0C4EB24F09AB60071A026 /* Filter.swift */; };
 		84C5148C24DB801800FA24C1 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5148B24DB801800FA24C1 /* UserDefaultManager.swift */; };
 		84C5148E24DB910200FA24C1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5148D24DB910200FA24C1 /* Validation.swift */; };
 		84D2449324E082F800438940 /* StyleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2449224E082F800438940 /* StyleNavigationBar.swift */; };
@@ -55,6 +57,8 @@
 		845D4F2224D8F60400B5E80B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
 		845D4F2324D8F60400B5E80B /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = "Finanzas/Application/Auth/Sign Up/SignUpViewController.xib"; sourceTree = SOURCE_ROOT; };
 		84A2332E24E0AB9900621429 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		84C0C4E724F0823A0071A026 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		84C0C4EB24F09AB60071A026 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		84C5148B24DB801800FA24C1 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		84C5148D24DB910200FA24C1 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		84D2449224E082F800438940 /* StyleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleNavigationBar.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				84F64F8D24E47664006D5D1D /* TransactionManager.swift */,
 				84F383B124ECA3E000C243F1 /* InputValidation.swift */,
 				84F383B324ECA61700C243F1 /* TypeErrors.swift */,
+				84C0C4EB24F09AB60071A026 /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 		04008C2624CDF8C90079DE46 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				84C0C4E624F082120071A026 /* Button */,
 				84FE5C3724E5FAD80086CDCB /* Alert */,
 				84FE5C3624E5FAB90086CDCB /* Navigation Bar */,
 				84018FF724E3289A0085E3AA /* Budget */,
@@ -191,6 +197,14 @@
 				84018FFD24E32A690085E3AA /* NewBudgetItemViewController.xib */,
 			);
 			path = Budget;
+			sourceTree = "<group>";
+		};
+		84C0C4E624F082120071A026 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				84C0C4E724F0823A0071A026 /* ButtonStyle.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		84F64F8824E45EC1006D5D1D /* Cells */ = {
@@ -303,12 +317,14 @@
 				84F64F8B24E45F15006D5D1D /* TransactionTableViewCell.swift in Sources */,
 				84018FFE24E32A690085E3AA /* NewBudgetItemViewController.swift in Sources */,
 				84F64F8724E4473B006D5D1D /* Transaction.swift in Sources */,
+				84C0C4E824F0823A0071A026 /* ButtonStyle.swift in Sources */,
 				84F64F8E24E47664006D5D1D /* TransactionManager.swift in Sources */,
 				04008C1124CDF7F80079DE46 /* BaseViewController.swift in Sources */,
 				04008C0D24CDF7F80079DE46 /* AppDelegate.swift in Sources */,
 				84D8A46924D9E407008628AB /* Login.swift in Sources */,
 				84D8A46F24D9E5C6008628AB /* User.swift in Sources */,
 				84018FFA24E32A190085E3AA /* BudgetViewController.swift in Sources */,
+				84C0C4EC24F09AB60071A026 /* Filter.swift in Sources */,
 				84C5148E24DB910200FA24C1 /* Validation.swift in Sources */,
 				84018FF624E311E50085E3AA /* ErrorMessage.swift in Sources */,
 				84F383B224ECA3E000C243F1 /* InputValidation.swift in Sources */,
