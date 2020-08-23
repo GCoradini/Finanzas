@@ -54,6 +54,12 @@ class SignUpViewController: UIViewController {
             case .invalidConfPassword:
                 confPasswordErrorLbl.setErrorMessage(message: "password doesn't match")
                 break
+            case .saveError:
+                self.alert(
+                    message: "Can´t create your account" ,
+                    title: "Save Error",
+                    handler: {_ in self.navigationController?.popViewController(animated: true)}
+                )
             }
         }
         
@@ -71,6 +77,7 @@ class SignUpViewController: UIViewController {
         
     }
     
+    // MARK: - Clear errors -
     private func clearErrors() {
         usernameErrorLbl.clearErrorMessage()
         emailErrorLbl.clearErrorMessage()

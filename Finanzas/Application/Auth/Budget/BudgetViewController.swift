@@ -113,6 +113,7 @@ class BudgetViewController: UIViewController {
         table.reloadData()
     }
     
+    // MARK: - Check Pressed Buttons -
     private func checkPressedButton() {
         if !incomeBtn.isEnabled {
             setIncomeTransactions()
@@ -125,7 +126,10 @@ class BudgetViewController: UIViewController {
     // MARK: - Set All Transactions Action -
     @IBAction func setAllTransactions() {
         transactionManager.getTransactions(user: userLogged.username)
-        if let title = titleSearchTF.text, isTitleFiltered {
+        if let title = titleSearchTF.text,
+            isTitleFiltered &&
+                !title.isEmpty
+        {
             transactionManager.filterByTitle(title: title)
         }
         table.reloadData()
@@ -139,7 +143,10 @@ class BudgetViewController: UIViewController {
     @IBAction func setIncomeTransactions() {
         
         transactionManager.getTransactions(user: userLogged.username)
-        if let title = titleSearchTF.text, isTitleFiltered {
+        if let title = titleSearchTF.text,
+            isTitleFiltered &&
+                !title.isEmpty
+        {
             transactionManager.filterByTitle(title: title)
         }
         transactionManager.filterIncome()
@@ -154,7 +161,10 @@ class BudgetViewController: UIViewController {
     @IBAction func setExpenseTransactions() {
         
         transactionManager.getTransactions(user: userLogged.username)
-        if let title = titleSearchTF.text, isTitleFiltered {
+        if let title = titleSearchTF.text,
+            isTitleFiltered &&
+                !title.isEmpty
+        {
             transactionManager.filterByTitle(title: title)
         }
         transactionManager.filterExpense()

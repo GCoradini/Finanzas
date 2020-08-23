@@ -13,10 +13,12 @@ enum LoginErrors {
     case invalidEmail
     case invalidPassword
     case invalidConfPassword
+    case saveError
 }
 
 enum TransactionErrors {
     case titleEmpty
     case descriptionEmpty
     case invalidAmount
+    case saveError
 }

@@ -45,7 +45,7 @@ class TransactionManager {
             }
 
             if validations.errors.isEmpty {
-                userDefault.saveTransaction(
+                let result = userDefault.saveTransaction(
                     Transaction(
                         amount: amount,
                         title: title,
@@ -55,6 +55,10 @@ class TransactionManager {
                     ),
                     user: user
                 )
+                
+                if !result {
+                    validations.addError(error: .saveError)
+                }
             }
         }
         return validations.errors

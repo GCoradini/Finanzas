@@ -72,7 +72,11 @@ public class Login {
             }
             
             if validations.errors.isEmpty {
-                userDefault.saveUser(User(username: username, email: email, password: password))
+                let result = userDefault.saveUser(User(username: username, email: email, password: password))
+                
+                if !result {
+                    validations.addError(error: .saveError)
+                }
             }
         }
         return validations.errors

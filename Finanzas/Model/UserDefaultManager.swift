@@ -22,7 +22,7 @@ class UserDefaultManager {
         defaults = UserDefaults.standard
     }
     
-    func saveUser(_ user: User) {
+    func saveUser(_ user: User) -> Bool {
         let encoder = JSONEncoder()
         users = getUsers()
         users.append(user)
@@ -30,8 +30,9 @@ class UserDefaultManager {
             let encodeData = try encoder.encode(users)
             defaults.set(encodeData, forKey: KeysUD.users.rawValue)
         } catch {
-            print("No se pudo guardar un usuario")
+            return false
         }
+        return true
     }
     
     func getUsers() -> [User] {
@@ -73,7 +74,7 @@ class UserDefaultManager {
         defaults.removeObject(forKey: KeysUD.loggedUser.rawValue)
     }
     
-    func saveTransaction(_ transaction: Transaction, user: String) {
+    func saveTransaction(_ transaction: Transaction, user: String) -> Bool{
         users = getUsers()
         let encoder = JSONEncoder()
         
@@ -85,8 +86,9 @@ class UserDefaultManager {
             let encodeData = try encoder.encode(users)
             defaults.set(encodeData, forKey: KeysUD.users.rawValue)
         } catch {
-            print("No se pudo guardar la transaccion")
+            return false
         }
+        return true
     }
     
     func getTransactions(user: String) -> [Transaction] {

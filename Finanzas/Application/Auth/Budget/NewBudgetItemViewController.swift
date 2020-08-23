@@ -66,6 +66,12 @@ class NewBudgetItemViewController: UIViewController {
                 descriptionErrorLbl.setErrorMessage(message: "description is empty")
             case .invalidAmount:
                 amountErrorLbl.setErrorMessage(message: "amount is not valid")
+            case .saveError:
+                self.alert(
+                    message: "Can´t save the transaction" ,
+                    title: "Save Error",
+                    handler: {_ in self.navigationController?.popViewController(animated: true)}
+                )
             }
         }
         
@@ -77,6 +83,7 @@ class NewBudgetItemViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: - Clear errors -
     private func clearErrors() {
         titleErrorLbl.clearErrorMessage()
         amountErrorLbl.clearErrorMessage()
